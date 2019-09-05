@@ -1,0 +1,18 @@
+{
+    "firstTask":{
+        "dropdownInfo":[{
+            "bpmParamName": "gender",
+            "label": "Gender",
+            "options": ["male","female"]
+        }],
+        "defaultInputInfo": [{
+            "bpmParamName": "birthdate",
+            "label": "birthdate",
+            "type": "date" 
+        }],
+        "checkboxInfo":[{
+            "bpmParamName": "notify",
+            "label": "Notify?"
+        }]
+    }
+}

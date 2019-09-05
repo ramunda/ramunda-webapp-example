@@ -1,0 +1,19 @@
+{
+    "firstTask":{
+        "radioButtonsInfo":[{
+            "bpmParamName": "toSum",
+            "label": "Operation",
+            "buttonsInfo": [{"label":"Add", "value": true},{"label":"Sub", "value": false}]	
+        }],
+        "defaultInputInfo": [{
+            "bpmParamName": "n1",
+            "label": "First number",
+            "type": "number" 
+        },
+        {
+            "bpmParamName": "n2",
+            "label": "Second number",
+            "type": "number" 
+        }]
+    }
+}

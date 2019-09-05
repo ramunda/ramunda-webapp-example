@@ -1,0 +1,22 @@
+.interface{
+    margin-top: 30px;
+  }
+  
+  .interface .bords{
+      background-color:lightgray; 
+  }
+
+  .interface .btnGroup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .interface .btt{
+    border-radius: 0px;
+    border: none;
+    outline: none;
+    font-size: 25px;
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+  }
