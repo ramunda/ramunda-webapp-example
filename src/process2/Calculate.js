@@ -1,7 +1,8 @@
 import React from 'react'
-import { Card, Segment } from 'semantic-ui-react'
+import { Card, Segment, Button } from 'semantic-ui-react'
 import CalculatorRow from './CalculatorRow'
 import './Calculate.css'
+import {withRouter} from 'react-router-dom'
 
 const maxDigits = 15
 const firstRow = [
@@ -21,7 +22,7 @@ const fourthRow = [
     { name: 'delete', value: 'C', display: 'C' }, { name: 'operation', value: 'equals', display: '=' }
 ]
 
-export default class Calculate extends React.Component {
+class Calculate extends React.Component {
 
     constructor(props) {
         super(props)
@@ -49,7 +50,7 @@ export default class Calculate extends React.Component {
         this.setState({ number: currNum })
     }
 
-    handleDelete = () =>{
+    handleDelete = () => {
         this.props.onCancel(this.state.process)
     }
 
@@ -59,7 +60,14 @@ export default class Calculate extends React.Component {
         stateProcess.task.parameters.n2.value = this.state.number
         stateProcess.task.parameters.toSum.value = this.state.toSum
         const process = await this.props.onSubmit(stateProcess, true)
-        this.setState({result: process.task.parameters.result.value})
+        this.setState({ result: process.task.parameters.result.value, finish: true })
+    }
+
+    terminate = async () => {
+        await this.props.onSubmit(this.state.process, true)
+        this.props.history.push({
+            pathname: '/'
+        })
     }
 
     handleNumber = (e, { name, value }) => {
@@ -77,11 +85,11 @@ export default class Calculate extends React.Component {
     }
 
     render() {
-        const process = this.props.process ? this.props.process  : {task: {}} 
+        const process = this.props.process ? this.props.process : { task: {} }
 
         return (
             <div className='interface'>
-                {(process ||  process.task) &&
+                {(process || process.task) &&
                     <Card centered className='bords'>
                         <Card.Content extra style={{ paddingTop: '25px' }}>
                             <Segment inverted size='massive' textAlign='right'>
@@ -113,7 +121,10 @@ export default class Calculate extends React.Component {
                             />
                         </Card.Content>
                     </Card>}
+                {this.state.finish &&
+                    <Button floated="right" onClick={this.terminate}>terminate</Button>}
             </div>
         )
     }
 }
+export default withRouter(Calculate)

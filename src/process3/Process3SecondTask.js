@@ -25,7 +25,7 @@ export default class Process3SecondTask extends React.Component {
 
     onBack(process) {
         this.props.history.push({
-            pathname: '/process1/firstTask',
+            pathname: '/process3/firstTask',
             state: { process: process }
         })
     }

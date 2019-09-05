@@ -4,10 +4,8 @@ import {Container } from 'semantic-ui-react'
 import ramundaOptions from './process3Options.json'
 
 export default class Process3FirstTask extends React.Component {
-
     constructor(props) {
         super(props)
-
         this.state={
             //object received when we did back in the second task
             process: this.props.location.state ? this.props.location.state.process : null 

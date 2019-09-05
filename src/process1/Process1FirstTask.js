@@ -36,6 +36,7 @@ export default class Process1FirstTask extends React.Component {
                 <DefaultAndRadioButtonsForm
                     creatInstance={this.state.process ? false : true}
                     procDefKey='Process_05r67sz'
+                    process={this.state.process}
                     options={ramundaOptions.firstTask}
                     onNext={this.onNext}
                     onCancel={this.onCancel}
